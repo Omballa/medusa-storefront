@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  storefront:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: examek-storefront
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: "http://localhost:9000" # your backend
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: "pk_76e3d7d5ed1ba9c5d9ec2f237a4ff4ed4fc5019eedc58eb2944202cc40f57f6a"
+    restart: unless-stopped
