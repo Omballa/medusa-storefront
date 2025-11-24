@@ -1,18 +1,14 @@
 [phases.setup]
-commands = [
+cmds = [
   "corepack enable",
   "corepack prepare yarn@4.6.0 --activate"
 ]
 
 [phases.install]
-commands = [
-  "yarn install --immutable"
-]
+cmds = ["yarn install --immutable"]
 
 [phases.build]
-commands = [
-  "yarn build"
-]
+cmds = ["yarn build"]
 
 [start]
-cmd = "npm run start"
+cmd = "yarn start"
