@@ -37,18 +37,34 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
       </div>
 
       {/* --- MAIN IMAGE --- */}
-      <Container style={{width: "100%", height: 400, marginRight: "5%"}} className="relative overflow-hidden bg-ui-bg-subtle rounded-xl">
+      <Container
+        style={{ width: "100%", height: 500, marginRight: "5%" }}
+        className="relative overflow-hidden bg-ui-bg-subtle rounded-xl"
+      >
         {selectedImage && (
-          <Image
-            src={selectedImage.url}
-            alt="Selected product image"
-            fill
-            sizes="(max-width: 768px) 50vw, 400px"
-            className="object-cover"
-            priority
-          />
+          <>
+            {/* BLURRED BACKGROUND */}
+            <Image
+              src={selectedImage.url}
+              alt="Background blur"
+              fill
+              className="object-cover blur-xl scale-110"
+              sizes="100vw"
+            />
+
+            {/* MAIN IMAGE (fit by height, maintain aspect ratio) */}
+            <Image
+              src={selectedImage.url}
+              alt="Selected product image"
+              fill
+              className="object-contain z-10"
+              sizes="(max-width: 768px) 50vw, 400px"
+              priority
+            />
+          </>
         )}
       </Container>
+
     </div>
   )
 }
