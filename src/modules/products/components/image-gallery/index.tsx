@@ -38,7 +38,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
 
       {/* --- MAIN IMAGE --- */}
       <Container
-        style={{ width: "100%", height: 500, marginRight: "5%" }}
+        style={{ width: "100%", height: 400, marginRight: "5%" }}
         className="relative overflow-hidden bg-ui-bg-subtle rounded-xl"
       >
         {selectedImage && (
