@@ -24,7 +24,11 @@ const ContactForm: React.FC = () => {
     try {
       const response = await fetch(`${MEDUSA_BACKEND_URL}/store/contact`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'x-publishable-api-key': process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || '' },
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded', 'x-publishable-api-key': process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || '',
+          'Access-Control-Allow-Origin': `${process.env.NEXT_PUBLIC_BASE_URL}`,
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        },
         body: new URLSearchParams(formData as any).toString(),
       });
       const data = await response.json();
