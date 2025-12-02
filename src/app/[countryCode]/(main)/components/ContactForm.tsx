@@ -16,7 +16,10 @@ const ContactForm: React.FC = () => {
     setStatus('loading');
     
     // The endpoint points to your Medusa backend's custom API route
-    const MEDUSA_BACKEND_URL = process.env.MEDUSA_BACKEND_URL || "http://localhost:9000";
+    const MEDUSA_BACKEND_URL = process.env.MEDUSA_BACKEND_URL;
+    if (!MEDUSA_BACKEND_URL) {
+      throw new Error("MEDUSA_BACKEND_URL is required! Set it in your .env")
+    }
 
     try {
       const response = await fetch(`${MEDUSA_BACKEND_URL}/store/contact`, {
