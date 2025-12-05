@@ -8,6 +8,7 @@ import { Button } from "@medusajs/ui"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { MagnifyingGlass } from "@medusajs/icons"
 
 type Hit = {
   id: string;
@@ -42,7 +43,7 @@ export default function SearchModal() {
           variant="transparent"
           className="hover:text-ui-fg-base text-small-regular px-0 hover:bg-transparent focus:!bg-transparent"
         >
-          Search
+          <MagnifyingGlass/>
         </Button>
       </div>
       <Modal isOpen={isOpen} close={() => setIsOpen(false)}>
@@ -64,7 +65,7 @@ const Hit = ({ hit }: { hit: Hit }) => {
       <Image src={hit.thumbnail} alt={hit.title} width={100} height={100} />
       <div className="flex flex-col gap-y-1">
         <h3>{hit.title}</h3>
-        <p className="text-sm text-gray-500">{hit.description}</p>
+        <p className="text-sm text-gray-500 line-clamp-4">{hit.description}</p>
       </div>
       <Link href={`/products/${hit.handle}`} className="absolute right-0 top-0 w-full h-full" aria-label={`View Product: ${hit.title}`} />
     </div>
