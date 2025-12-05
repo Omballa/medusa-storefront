@@ -37,7 +37,7 @@ export default function SearchModal() {
 
   return (
     <>
-      <div className="hidden small:flex items-center gap-x-6 h-full">
+      <div className="flex items-center gap-x-6 h-full">
         <Button 
           onClick={() => setIsOpen(true)} 
           variant="transparent"
@@ -52,7 +52,9 @@ export default function SearchModal() {
           indexName={process.env.NEXT_PUBLIC_MEILISEARCH_INDEX_NAME}
         >
           <SearchBox className="w-full [&_input]:w-[94%] [&_input]:outline-none [&_button]:w-[3%]" />
-          <Hits hitComponent={Hit} />
+          <div className="max-h-[70vh] overflow-y-auto mt-4">
+            <Hits hitComponent={Hit} />
+          </div>
         </InstantSearch>
       </Modal>
     </>
