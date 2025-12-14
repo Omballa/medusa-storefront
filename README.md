@@ -9,11 +9,11 @@
 </p>
 
 <h1 align="center">
-  Medusa Next.js Starter Template
+  Medusa Next.js Extended Starter Template
 </h1>
 
 <p align="center">
-Combine Medusa's modules for your commerce backend with the newest Next.js 15 features for a performant storefront.</p>
+Combine Medusa's modules for your commerce backend with the newest Next.js 15 features for a performant storefront. This project features the initial starter template plus some more features incuding resend integration, a contact form as well as telegram notifications for order placement, contact form submission and meilisearch integration.</p>
 
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
@@ -29,11 +29,11 @@ Combine Medusa's modules for your commerce backend with the newest Next.js 15 fe
 
 ### Prerequisites
 
-To use the [Next.js Starter Template](https://medusajs.com/nextjs-commerce/), you should have a Medusa server running locally on port 9000.
-For a quick setup, run:
+To use the [Next.js Extendedd Starter Template](https://medusajs.com/nextjs-commerce/), you should have a Medusa server running locally on port 9000.
 
+Clone this repository then run the command below.
 ```shell
-npx create-medusa-app@latest
+npm install
 ```
 
 Check out [create-medusa-app docs](https://docs.medusajs.com/learn/installation) for more details and troubleshooting.
@@ -95,6 +95,30 @@ yarn dev
 ### Open the code and start customizing
 
 Your site is now running at http://localhost:8000!
+
+### Setting up Meilisearch
+
+To enable search functionality in the storefront, you need a running Meilisearch instance.
+
+Follow the official Meilisearch documentation for installation and setup:  
+[Meilisearch Installation Guide](https://www.meilisearch.com/docs/learn/getting_started/installation)
+
+Common ways to run Meilisearch:
+- Locally via binary or Homebrew
+- Using Docker: `docker run -it --rm -p 7700:7700 getmeili/meilisearch:latest`
+
+For production, set a master key (via `--master-key` or `MEILI_MASTER_KEY` env) to enable security. Meilisearch will then generate a **Default Search API Key** (safe for client-side use).
+
+Once Meilisearch is running (default endpoint: `http://localhost:7700`):
+
+1. Create your index (e.g., `products`) if not already done by the backend.
+2. Copy the following into your storefront's `.env.local` file:
+
+```shell
+NEXT_PUBLIC_SEARCH_ENDPOINT=http://localhost:7700
+NEXT_PUBLIC_SEARCH_API_KEY=your_default_search_api_key_here
+NEXT_PUBLIC_SEARCH_INDEX_NAME=products
+
 
 # Payment integrations
 
