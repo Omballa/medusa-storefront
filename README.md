@@ -15,6 +15,8 @@
 <p align="center">
 Combine Medusa's modules for your commerce backend with the newest Next.js 15 features for a performant storefront. This project features the initial starter template plus some more features incuding resend integration, a contact form as well as telegram notifications for order placement, contact form submission and meilisearch integration.</p>
 
+<p>A demo of the project is running at <a href="https://examek.com">ExaMek</p>
+
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
